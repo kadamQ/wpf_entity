@@ -1,0 +1,58 @@
+﻿<Window x:Class="TestWPFENTITY.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestWPFENTITY"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="410" Width="1400.508" Loaded="Window_Loaded">
+    <Grid>
+        <DataGrid 
+        x:Name="dgPatientTable" 
+        HorizontalAlignment="Left" Margin="10,10,0,0" 
+        VerticalAlignment="Top" Height="299" Width="634" SelectionChanged="dgPatientTable_SelectionChanged"/>
+        <Label HorizontalAlignment="Left" Margin="657,20,0,0" VerticalAlignment="Top" Width="225">
+            <Label Content="Add New Patient" Width="215" FontSize="20"/>
+        </Label>
+        <Label Content="Name:" HorizontalAlignment="Left" Margin="657,72,0,0" VerticalAlignment="Top" Width="70"/>
+        <Label Content="Phone:" HorizontalAlignment="Left" Margin="657,103,0,0" VerticalAlignment="Top" Width="70"/>
+        <Label Content="Email:" HorizontalAlignment="Left" Margin="657,134,0,0" VerticalAlignment="Top" Width="70"/>
+        <Label Content="Address:" HorizontalAlignment="Left" Margin="657,165,0,0" VerticalAlignment="Top" Width="70"/>
+        <Label Content="Postal zip:" HorizontalAlignment="Left" Margin="657,196,0,0" VerticalAlignment="Top" Width="70"/>
+        <TextBox 
+            x:Name="tbName" HorizontalAlignment="Left" Height="23" Margin="732,75,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="250"/>
+        <TextBox 
+            x:Name="tbPhone" HorizontalAlignment="Left" Height="23" Margin="732,106,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="250"/>
+        <TextBox 
+            x:Name="tbEmail" HorizontalAlignment="Left" Height="23" Margin="732,138,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="250"/>
+        <TextBox 
+            x:Name="tbAddress" HorizontalAlignment="Left" Height="23" Margin="732,169,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="250"/>
+        <TextBox 
+            x:Name="tbPostalZip" HorizontalAlignment="Left" Height="23" Margin="732,200,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="250"/>
+        <Button 
+            x:Name="btnAddPatient" Content="Add new Patient" HorizontalAlignment="Left" Margin="657,228,0,0" VerticalAlignment="Top" Width="325" Click="btnAddPatient_Click" Height="44"/>
+        <Label Content="Update Patient"
+               FontSize="20"
+               HorizontalAlignment="Left" Margin="1014,30,0,0" VerticalAlignment="Top" Width="150"/>
+        <TextBox 
+            x:Name="tbNameUpdate" 
+            HorizontalAlignment="Left" Height="23" Margin="1014,75,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="369"/>
+        <TextBox 
+            x:Name="tbPhoneUpdate"
+            HorizontalAlignment="Left" Height="23" Margin="1014,106,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="369"/>
+        <TextBox 
+            x:Name="tbEmailUpdate"
+            HorizontalAlignment="Left" Height="23" Margin="1014,138,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="369"/>
+        <TextBox 
+            x:Name="tbAddressUpdate"
+            HorizontalAlignment="Left" Height="23" Margin="1014,169,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="369"/>
+        <TextBox 
+            x:Name="tbPostalzipUpdate"
+            HorizontalAlignment="Left" Height="23" Margin="1014,200,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="369"/>
+        <Label x:Name="lblID" Content="ID" FontSize="18" HorizontalAlignment="Left" Margin="1169,33,0,0" VerticalAlignment="Top"/>
+        <Label Content="" FontSize="18" HorizontalAlignment="Left" Margin="1211,33,0,0" VerticalAlignment="Top" Width="172"/>
+        <Button 
+        	x:Name="btnUpdatePatient" Content="Update Patient" HorizontalAlignment="Left" Margin="1014,233,0,0" VerticalAlignment="Top" Width="369" Height="39" Click="btnUpdatePatient_Click"/>
+        <Label x:Name="lblTeszt" FontSize="30" Content="" HorizontalAlignment="Left" Margin="10,322,0,0" VerticalAlignment="Top" Width="902" Height="51"/>
+    </Grid>
+</Window>
