@@ -14,8 +14,7 @@
         </Grid.ColumnDefinitions>
         <DataGrid
             x:Name="dgPatientTable"
-            Margin="10"
-            SelectionChanged="dgPatientTable_SelectionChanged"/>
+            Margin="10"/>
         <Grid x:Name="addPanel" Grid.Column="1" Width="325" Margin="10" Background="WhiteSmoke">
             <d:FrameworkElement.DataContext>
                 <local:patient name="Alex" phone="1234" email="dog" address="Moon" postalZip="6789"/>
