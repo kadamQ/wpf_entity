@@ -7,52 +7,106 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="410" Width="1400.508" Loaded="Window_Loaded">
     <Grid>
-        <DataGrid 
-        x:Name="dgPatientTable" 
-        HorizontalAlignment="Left" Margin="10,10,0,0" 
-        VerticalAlignment="Top" Height="299" Width="634" SelectionChanged="dgPatientTable_SelectionChanged"/>
-        <Label HorizontalAlignment="Left" Margin="657,20,0,0" VerticalAlignment="Top" Width="225">
-            <Label Content="Add New Patient" Width="215" FontSize="20"/>
-        </Label>
-        <Label Content="Name:" HorizontalAlignment="Left" Margin="657,72,0,0" VerticalAlignment="Top" Width="70"/>
-        <Label Content="Phone:" HorizontalAlignment="Left" Margin="657,103,0,0" VerticalAlignment="Top" Width="70"/>
-        <Label Content="Email:" HorizontalAlignment="Left" Margin="657,134,0,0" VerticalAlignment="Top" Width="70"/>
-        <Label Content="Address:" HorizontalAlignment="Left" Margin="657,165,0,0" VerticalAlignment="Top" Width="70"/>
-        <Label Content="Postal zip:" HorizontalAlignment="Left" Margin="657,196,0,0" VerticalAlignment="Top" Width="70"/>
-        <TextBox 
-            x:Name="tbName" HorizontalAlignment="Left" Height="23" Margin="732,75,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="250"/>
-        <TextBox 
-            x:Name="tbPhone" HorizontalAlignment="Left" Height="23" Margin="732,106,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="250"/>
-        <TextBox 
-            x:Name="tbEmail" HorizontalAlignment="Left" Height="23" Margin="732,138,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="250"/>
-        <TextBox 
-            x:Name="tbAddress" HorizontalAlignment="Left" Height="23" Margin="732,169,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="250"/>
-        <TextBox 
-            x:Name="tbPostalZip" HorizontalAlignment="Left" Height="23" Margin="732,200,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="250"/>
-        <Button 
-            x:Name="btnAddPatient" Content="Add new Patient" HorizontalAlignment="Left" Margin="657,228,0,0" VerticalAlignment="Top" Width="325" Click="btnAddPatient_Click" Height="44"/>
-        <Label Content="Update Patient"
-               FontSize="20"
-               HorizontalAlignment="Left" Margin="1014,30,0,0" VerticalAlignment="Top" Width="150"/>
-        <TextBox 
-            x:Name="tbNameUpdate" 
-            HorizontalAlignment="Left" Height="23" Margin="1014,75,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="369"/>
-        <TextBox 
-            x:Name="tbPhoneUpdate"
-            HorizontalAlignment="Left" Height="23" Margin="1014,106,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="369"/>
-        <TextBox 
-            x:Name="tbEmailUpdate"
-            HorizontalAlignment="Left" Height="23" Margin="1014,138,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="369"/>
-        <TextBox 
-            x:Name="tbAddressUpdate"
-            HorizontalAlignment="Left" Height="23" Margin="1014,169,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="369"/>
-        <TextBox 
-            x:Name="tbPostalzipUpdate"
-            HorizontalAlignment="Left" Height="23" Margin="1014,200,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="369"/>
-        <Label x:Name="lblID" Content="ID" FontSize="18" HorizontalAlignment="Left" Margin="1169,33,0,0" VerticalAlignment="Top"/>
-        <Label Content="" FontSize="18" HorizontalAlignment="Left" Margin="1211,33,0,0" VerticalAlignment="Top" Width="172"/>
-        <Button 
-        	x:Name="btnUpdatePatient" Content="Update Patient" HorizontalAlignment="Left" Margin="1014,233,0,0" VerticalAlignment="Top" Width="369" Height="39" Click="btnUpdatePatient_Click"/>
-        <Label x:Name="lblTeszt" FontSize="30" Content="" HorizontalAlignment="Left" Margin="10,322,0,0" VerticalAlignment="Top" Width="902" Height="51"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <DataGrid
+            x:Name="dgPatientTable"
+            Margin="10"
+            SelectionChanged="dgPatientTable_SelectionChanged"/>
+        <Grid x:Name="addPanel" Grid.Column="1" Width="325" Margin="10" Background="WhiteSmoke">
+            <d:FrameworkElement.DataContext>
+                <local:patient name="Alex" phone="1234" email="dog" address="Moon" postalZip="6789"/>
+            </d:FrameworkElement.DataContext>
+            <FrameworkElement.DataContext>
+                <local:patient/>
+            </FrameworkElement.DataContext>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.ColumnSpan="2" Text="Add New Patient" FontSize="20" Margin="20"/>
+            <TextBlock Text="Name:" Grid.Row="1" Margin="5"/>
+            <TextBlock Text="Phone:" Grid.Row="2" Margin="5"/>
+            <TextBlock Text="Email:" Grid.Row="3" Margin="5"/>
+            <TextBlock Text="Address:" Grid.Row="4" Margin="5"/>
+            <TextBlock Text="Postal zip:" Grid.Row="5" Margin="5"/>
+            <Button x:Name="btnAddPatient" Grid.Row="6" Grid.ColumnSpan="2"
+                    Content="Add new Patient" Click="btnAddPatient_Click"
+                    Margin="10" Padding="15 10"/>
+
+            <TextBox Grid.Row="1" Grid.Column="1" Margin="5"
+                     Text="{Binding name}"/>
+            <TextBox Grid.Row="2" Grid.Column="1" Margin="5"
+                     Text="{Binding phone}"/>
+            <TextBox Grid.Row="3" Grid.Column="1" Margin="5"
+                     Text="{Binding address}"/>
+            <TextBox Grid.Row="4" Grid.Column="1" Margin="5"
+                     Text="{Binding address}"/>
+            <TextBox Grid.Row="5" Grid.Column="1" Margin="5"
+                     Text="{Binding postalZip}"/>
+
+        </Grid>
+         <Grid x:Name="updatePanel" Grid.Column="2" Width="325" Margin="10" Background="WhiteSmoke"
+               DataContext="{Binding SelectedItem, ElementName=dgPatientTable}">
+            <Grid.Style>
+                <Style TargetType="Grid">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding}" Value="{x:Null}">
+                            <Setter Property="IsEnabled" Value="False"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Style>
+            <d:FrameworkElement.DataContext>
+                <local:patient name="Alex" phone="1234" email="dog" address="Moon" postalZip="6789"/>
+            </d:FrameworkElement.DataContext>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.ColumnSpan="2" Text="Update Patient" FontSize="20" Margin="20"/>
+            <TextBlock Text="Name:" Grid.Row="1" Margin="5"/>
+            <TextBlock Text="Phone:" Grid.Row="2" Margin="5"/>
+            <TextBlock Text="Email:" Grid.Row="3" Margin="5"/>
+            <TextBlock Text="Address:" Grid.Row="4" Margin="5"/>
+            <TextBlock Text="Postal zip:" Grid.Row="5" Margin="5"/>
+            <Button x:Name="btnUpdatePatient" Grid.Row="6" Grid.ColumnSpan="2"
+                    Content="Update Patient" Click="btnAddPatient_Click"
+                    Margin="10" Padding="15 10"/>
+
+            <TextBox Grid.Row="1" Grid.Column="1" Margin="5"
+                     Text="{Binding name}"/>
+            <TextBox Grid.Row="2" Grid.Column="1" Margin="5"
+                     Text="{Binding phone}"/>
+            <TextBox Grid.Row="3" Grid.Column="1" Margin="5"
+                     Text="{Binding address}"/>
+            <TextBox Grid.Row="4" Grid.Column="1" Margin="5"
+                     Text="{Binding address}"/>
+            <TextBox Grid.Row="5" Grid.Column="1" Margin="5"
+                     Text="{Binding postalZip}"/>
+        </Grid>
     </Grid>
 </Window>
